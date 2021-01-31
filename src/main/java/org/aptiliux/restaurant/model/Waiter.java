@@ -24,8 +24,12 @@ public class Waiter {
 
 	@Column(name = "national_identifier", nullable = false)
 	private Long nationalIdentifier;
-
+	
 	public Waiter() {
+	}
+	
+	public Waiter(Long id) {
+		this.id = id;
 	}
 
 	public Waiter(String name, String lastName, Long nationalIdentifier) {

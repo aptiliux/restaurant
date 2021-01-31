@@ -25,14 +25,14 @@ public class Order {
 	@Column(name = "id", nullable = false)
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "waiter_id", referencedColumnName = "id", nullable = false)
 	private Waiter waiter;
 
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<OrderProduct> products;
 
-	@Column(name = "date", columnDefinition = "DATE", insertable = false, updatable = false)
+	@Column(name = "date", columnDefinition = "DATE", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 
