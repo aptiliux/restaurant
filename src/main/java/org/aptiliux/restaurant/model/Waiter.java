@@ -22,7 +22,7 @@ public class Waiter {
 	@Column(name = "last_name", nullable = false)
 	private String lastName;
 
-	@Column(name = "national_identifier", nullable = false)
+	@Column(name = "national_identifier", nullable = false, unique = true)
 	private Long nationalIdentifier;
 	
 	public Waiter() {

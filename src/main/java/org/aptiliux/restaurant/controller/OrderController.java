@@ -1,8 +1,10 @@
 package org.aptiliux.restaurant.controller;
 
+import org.aptiliux.restaurant.configuration.jwt.UserPrincipal;
 import org.aptiliux.restaurant.dto.order.create.ProductsDTO;
 import org.aptiliux.restaurant.service.OrderService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,14 +25,16 @@ public class OrderController {
 	}
 
 	@PostMapping("/orders")
-	public ResponseEntity<Void> createOrder(@RequestBody ProductsDTO products, UriComponentsBuilder uriComponentBuilder) {
-		Long orderId = orderService.createOrder(1L, products);
+	public ResponseEntity<Void> createOrder(@RequestBody ProductsDTO products,
+			UriComponentsBuilder uriComponentBuilder) {
+		UserPrincipal user = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Long orderId = orderService.createOrder(user.getUserId(), products);
 		UriComponents uriComponents = uriComponentBuilder.path("/api/v1/orders/{id}").buildAndExpand(orderId);
 		return ResponseEntity.created(uriComponents.toUri()).build();
 	}
-	
+
 	@GetMapping("/orders/{id}")
-	public ResponseEntity<Void> getOrder(@PathVariable("id") Long orderId){
+	public ResponseEntity<Void> getOrder(@PathVariable("id") Long orderId) {
 		return ResponseEntity.notFound().build();
 	}
 }
