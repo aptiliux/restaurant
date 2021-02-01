@@ -25,6 +25,7 @@ Debe ejecutarse el siguiente comando en la carpeta del proyecto
 
 ## Uso
 - existen 2 usuarios **user1** y **user2** con password **password**
+- existe 2 productos el id 1 y 2, tiene un precio asociado, cuando se crear una order se le puede indicar la cantidad
 - se debe hacer un request con POST: http://localhost:8080/login usando este json
 {
     "username":"user1",
