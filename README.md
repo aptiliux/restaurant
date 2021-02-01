@@ -30,7 +30,7 @@ Debe ejecutarse el siguiente comando en la carpeta del proyecto
     "username":"user1",
     "password":"password"
 }
-- en el header **location** se va a retornar un jwt
+- en el header **Authorization** se va a retornar un jwt
 - usar ese jwt para hacer request según documentación swagger http://localhost:8080/swagger-ui/index.html
 - el endpoint del reporte de ventas diario se implementó segun este patrón [Microsoft](https://docs.microsoft.com/en-us/azure/architecture/patterns/async-request-reply)
 
