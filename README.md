@@ -20,7 +20,8 @@ Debe ejecutarse el siguiente comando en la carpeta del proyecto
 - la base de datos es en memoria con h2
 - no se almacenan los usuario y las contraseñas h2 (es una hack solo para el demo)
 - se implementó una creación de ordenes (ventas) por waiter (mesero/garsón)
-- se implementó un reporte de ventas del día por waiter 
+- se implementó un reporte de ventas del día por waiter
+- jms está implementado a modo de ejemplo, envía un mensaje pero no hace nada más
 
 ## Uso
 - existen 2 usuarios **user1** y **user2** con password **password**
@@ -37,4 +38,3 @@ Debe ejecutarse el siguiente comando en la carpeta del proyecto
 - unit test (solo hay una)
 - swagger UI no muestra los headers
 - en swagger no se muestra el endpoint /login (auto-generado de spring)
-- jms está implementado a modo de ejemplo, envía un mensaje pero no hace nada más
